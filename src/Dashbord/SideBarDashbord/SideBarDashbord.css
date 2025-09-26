@@ -1,0 +1,30 @@
+
+.side_content {
+height: calc(99vh - 60px);
+padding-top: 50px;
+box-shadow: rgba(255, 242, 127, 0.123) 0.95px 0.95px 10px;
+}
+.side_content .side_item {
+width: 85%;
+margin:5px 0;
+padding: 10px 0 10px 20px;
+transition: 0.3s ease-in;
+}
+.side_content .side_item:hover {
+
+background-color: rgba(224, 210, 2, 0.89);
+border-radius: 0 10px 10px 0;
+   
+}
+.side_content .side_item.active {
+background-color: rgba(224, 210, 2, 0.89); 
+border-radius: 0 10px 10px 0;   
+}
+
+
+
+
+
+
+
+

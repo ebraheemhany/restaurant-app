@@ -1,0 +1,47 @@
+
+.header_right .heder_user img {
+
+width: 40px;
+height: 40px;
+object-fit: cover;
+border-radius: 50%;
+}
+
+.header_right .headr_search {
+
+background-color: rgba(59, 57, 57, 0.63);
+padding: 5px;
+outline: none;
+border-radius: 8px;
+
+
+
+}
+.header_right .headr_search input {
+width: 100%;
+outline: none;
+
+}
+.header_right .headr_search input::placeholder {
+color: rgba(66, 66, 2, 0.911);
+
+} 
+.header_right .heder_bell{
+width: 40px;
+height: 40px;
+line-height: 40px;
+text-align: center;
+background-color: rgba(185, 35, 35, 0.63);
+border-radius: 50%;
+
+}
+
+
+
+
+
+
+
+
+
+

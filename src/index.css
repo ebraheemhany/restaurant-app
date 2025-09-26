@@ -1,0 +1,116 @@
+
+@import "tailwindcss";
+
+
+body {
+    @apply bg-black text-white 
+}
+.dash_content {
+
+background-color: rgba(5, 0, 0, 0.685);
+
+}
+.bg_greay {
+    background-color: rgba(39, 38, 38, 0.877);
+}
+.bg_search {
+    background-color: rgba(233, 232, 232, 0.247);
+}
+.laoding_bg {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(233, 232, 232, 0.247);
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+label {
+font-size: 18px;
+font-weight: 400;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.sign_input {
+border: 1px solid rgba(0, 0, 0, 0.767);
+padding: 8px;
+margin: 10px 0;
+border-radius: 8px;
+outline:none;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+@media(max-width:641px) {
+.item_menu {
+    width: 90%;
+}
+.item_info {
+    padding: 12px;
+}
+.content_sign {
+    width: 90%;
+}
+.slick-dots li button:before {
+  font-size: 12px !important;
+}
+.slick-dots {
+ bottom: 2px !important;
+}
+}
+
+@media(max-width:400px) {
+.item_menu {
+    width: 98%;
+}
+.item_info {
+    padding: 5px;
+}
+button {
+    font-size: 17px;
+}
+label {
+font-size: 15px;
+font-weight: 300;
+
+}
+
+}
+
+
+
+.slick-dots li button:before {
+  font-size: 16px !important;   /* الحجم */
+  color: white !important;      /* اللون */
+  opacity: 0.5 !important;      /* درجة الشفافية */
+}
+
+/* لون النقطة النشطة */
+.slick-dots li.slick-active button:before {
+  color: #f8f7f6 !important; /* برتقالي */
+  opacity: 1 !important;
+}
+
+
+.massge form input,
+.massge form textarea {
+outline: none;
+border: 1px solid gray;
+border-radius: 5px;
+padding: 8px;
+margin-top: 10px;
+transition: 0.4s ease;
+
+}
+.massge form input:focus,
+.massge form textarea:focus {
+    border: 1px solid gold;
+}
+
+
+
+
+
+
