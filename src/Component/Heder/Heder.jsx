@@ -5,7 +5,8 @@ import "./Heder.css";
 import { useState } from "react";
 import { FcMenu } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
-
+import { BsFillMenuButtonWideFill } from "react-icons/bs";
+import { CiLogin } from "react-icons/ci";
 export const Heder = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -23,9 +24,18 @@ export const Heder = () => {
     handelClose();
   };
 
+  // get user From localStroge
+  const user = JSON.parse(window.localStorage.getItem("user_Info") || "null");
+
+  // function to remove user from localStroge
+  const removeUserFromLocalS = () => {
+    window.localStorage.removeItem("user_Info");
+
+    window.location.reload();
+  };
   return (
-    <div className="header container sm:ml-5 z-80 fixed top-0 lef-0">
-      <div className="header_content flex items-center justify-between">
+    <div className="header w-full sm:ml-5 z-80 fixed top-0 lef-0">
+      <div className="header_content container mx-auto  flex items-center justify-between">
         {/* logo */}
         <div className="logo">
           <Link to={"/"}>
@@ -73,11 +83,32 @@ export const Heder = () => {
             </div>
           </Link>
 
-          <Link to={"/sign"}>
-            <div className="user text-2xl cursor-pointer">
-              <CiUser />
+      <div className="hidden md:flex">
+            {user ? (
+            <div
+              onClick={removeUserFromLocalS}
+              className="user   text-2xl cursor-pointer"
+            >
+              <CiLogin />
             </div>
-          </Link>
+          ) : (
+            <Link to={"/sign"}>
+              <div className="user   text-2xl cursor-pointer">
+                <CiUser />
+              </div>
+            </Link>
+          )}
+      </div>
+<div className="hidden md:flex">
+  
+          {user && user.user.email == "admin1@gmail.com" && (
+            <Link to={"/dashbord"}>
+              <div className="user text-2xl cursor-pointer">
+                <BsFillMenuButtonWideFill />
+              </div>
+            </Link>
+          )}
+</div>
 
           <div
             className="menu md:hidden flex items-center justify-center "
@@ -122,15 +153,52 @@ export const Heder = () => {
 
       {showMenu && (
         <div
-          className="fixed inset-0 bg_search  flex justify-center  z-50"
+          className="fixed inset-0 bg-black/85  flex justify-center  z-50"
           onClick={() => setShowMenu(false)}
         >
-          <ul className="flex flex-col gap-6 text-xl mt-50">
-            <li onClick={() => setShowMenu(false)}>Home</li>
-            <li onClick={() => setShowMenu(false)}>Menu</li>
-            <li onClick={() => setShowMenu(false)}>About</li>
-            <li onClick={() => setShowMenu(false)}>Contact</li>
-          </ul>
+
+
+         <div className="mt-30 mx-auto flex flex-col  ">
+           <ul className="flex flex-col justify-center ">
+            <Link to="/" onClick={() => setShowMenu(false)}> 
+              <span className="w-full flex justify-center mt-3 text-2xl">Home</span>
+            </Link>
+            <Link to="/menuPage" onClick={() => setShowMenu(false)}>
+               <span className="w-full flex justify-center mt-3 text-2xl">Menu</span>
+            </Link>
+            <Link to="/contact" onClick={() => setShowMenu(false)}>
+               <span className="w-full flex justify-center mt-3 text-2xl">Contact</span>
+            </Link>
+           </ul>
+
+
+         <div className="flex justify-center w-80  bg-amber-600  text-white p-2 rounded-sm mt-3 ">
+            {user ? (
+       <button onClick={removeUserFromLocalS} className=" text-2xl cursor-pointer flex items-center gap-2 justify-center">
+         Log Out <span className="mt-2"><CiLogin /></span>
+       </button>
+          ) : (
+            <Link to={"/sign"}>
+              <button className=" text-2xl cursor-pointer flex items-center gap-2 justify-center w-full">
+               SignUp <span className="mt-2"><CiUser /></span>
+              </button>
+            </Link>
+          )}
+         </div>
+
+<div className="flex justify-center w-80  bg-amber-600  text-white mt-3 rounded-sm">
+  
+          {user && user.user.email == "admin1@gmail.com" && (
+            <Link to={"/dashbord"}>
+              <button className=" text-2xl cursor-pointer flex  w-full bg-amber-600  text-white p-2 rounded-xl">
+               DashBord
+              </button>
+            </Link>
+          )}
+</div>
+
+         </div>
+          
         </div>
       )}
     </div>

@@ -92,15 +92,15 @@ export const CartPage = () => {
               {order.items.map((item, idx) => (
                 <div key={idx} className="cart_content">
                   <div className="flex flex-col gap-3 mt-3 w-full">
-                    <div className="cart_item w-5/6 mx-auto flex justify-between items-center p-3 rounded-xl">
+                    <div className="cart_item w-full sm:w-5/6  mx-auto flex justify-between items-center py-3 rounded-xl">
                       <div className="flex gap-3">
                         <img
-                          className="w-20 h-auto rounded-xl"
+                          className="w-15 sm:w-20 h-auto rounded-xl"
                           src={item.image}
                           alt={item.name}
                         />
                         <div className="name_price">
-                          <h3 className="text-xl md:text-2xl font-bold mb-2">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
                             {item.name}
                           </h3>
                           <p className="text-lg font-bold">
@@ -134,15 +134,15 @@ export const CartPage = () => {
           ? finalItems.map((item, idx) => (
               <div key={idx} className="cart_content">
                 <div className="flex flex-col gap-3 mt-5 w-full">
-                  <div className="cart_item w-5/6 mx-auto flex justify-between items-center p-3 rounded-xl">
+                  <div className="cart_item w-full sm:w-5/6  mx-auto flex justify-between items-center p-3 rounded-xl">
                     <div className="flex gap-3">
                       <img
-                        className="w-20 h-auto rounded-xl"
+                        className="w-15 sm:w-20 h-auto rounded-xl"
                         src={item.image}
                         alt={item.name}
                       />
                       <div className="name_price">
-                        <h3 className="text-xl md:text-2xl font-bold mb-2">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
                           {item.name}
                         </h3>
                         <p className="text-lg font-bold">
@@ -181,13 +181,13 @@ export const CartPage = () => {
         {/* /////////////////////////// */}
 
         {finalItems.length > 0 ? (
-          <div className="w-3/7 my-10 md:2/5 mx-auto rounded-xl bg-amber-50 text-black">
+          <div className="w-60 sm:w-3/7 my-10 md:2/5 mx-auto rounded-xl bg-amber-50 text-black">
             <p className="text-xl md:text-2xl font-bold m-3 pt-5 ">
               Total Price :{" "}
               <span className="text-xl text-amber-500">{totalPrice}</span>$
             </p>
             <Link to={"/userDetails"}>
-              <button className="w-5/6 my-3 ml-10 mx-auto  bg-amber-500 p-2 rounded-xl text-white font-bold hover:bg-amber-600 cursor-pointer  ">
+              <button className="w-5/6 ml-5 md:ml-10 my-3   bg-amber-500 p-2 rounded-xl text-white font-bold hover:bg-amber-600 cursor-pointer  ">
                 Order Now
               </button>
             </Link>

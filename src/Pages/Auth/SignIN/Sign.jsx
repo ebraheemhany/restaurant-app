@@ -40,7 +40,13 @@ const handelSubmit = async (e) => {
   });
 
   if (error) {
-    console.log(error, "error");
+    console.log(error.message, "error");
+    await Alert({
+    title:error.message,
+    ok: "OK",
+    icon: "error",
+    cancelValue: false,
+  });
     return;
   }
 

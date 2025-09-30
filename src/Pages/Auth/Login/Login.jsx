@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Heder } from '../../../Component/Heder/Heder'
 import { supabase } from '../../../../supabaseClient';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Alert } from '../../../Component/Alert/Alert';
 
 
@@ -13,7 +13,7 @@ export const Login = () => {
   
   });
   const [error, setError] = useState(false);
-
+const navegate = useNavigate()
   // const handel state change
   const handelStateChange = (e) => {
     setSign({ ...sign, [e.target.name]: e.target.value });
@@ -45,6 +45,7 @@ export const Login = () => {
          cancelValue:false
     
          })
+   window.localStorage.setItem("user_Info" , JSON.stringify(data))      
     setError(false);
     setSign({
       name: "",
@@ -52,6 +53,7 @@ export const Login = () => {
       password: "",
       reePass: "",
     });
+    navegate("/")
   }
 
   return (
