@@ -39,35 +39,50 @@ export const CartPage = () => {
 
   // الاوردرات اللي المستخدم طلبهاا
    
-  useEffect(() => {
-    const fetchOrders = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      const { error, data } = await supabase
-        .from("orders")
-        .select(
-          `
-          id,
-          items,
-          total,
-          status,
-          created_at,
-          customers(name, phone, location)
-        `
-        )
-        .eq("customer_id", user.id) 
-        // السطر ده علشان نرتب الاوردر حسب التاريخ
-        .order("created_at", { ascending: false });
+ useEffect(() => {
+  const fetchOrders = async () => {
+    const phone = window.localStorage.getItem("userPhone");
+    if (!phone) return;
 
-      if (error) {
-        console.log(error);
-        return;
-      } else {
-        console.log("success");
-        setOrders(data);
-      }
-    };
-    fetchOrders();
-  }, []);
+    // هات العميل الأول بالـ phone
+    const { data: customer, error: customerError } = await supabase
+      .from("customers")
+      .select("id")
+      .eq("phone", phone)
+      .single();
+
+    if (customerError || !customer) {
+      console.log(customerError);
+      return;
+    }
+
+    // هات الأوردرات الخاصة بالعميل
+    const { data, error } = await supabase
+      .from("orders")
+      .select(
+        `
+        id,
+        items,
+        total,
+        status,
+        created_at,
+        customers(name, phone, location)
+      `
+      )
+      .eq("customer_id", customer.id)
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    setOrders(data);
+  };
+
+  fetchOrders();
+}, []);
+
 
 
   return (
