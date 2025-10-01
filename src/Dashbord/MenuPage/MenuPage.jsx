@@ -79,34 +79,40 @@ const filterItemDiscount = () => {
            filterItemDiscount().length > 0 ? (
             filterItemDiscount().map((item, idx) => (
              
-              <div
-                key={idx}
-                className="menu_item bg-red-900 flex gap-4 p-2 rounded-xl w-full"
-              >
-                <img
-                  className="w-25 h-auto object-contain rounded-2xl"
-                  src={item.image}
-                  alt="img item"
-                />
+         <div
+  key={idx}
+  className="menu_item bg-red-900 flex flex-col sm:flex-row gap-3 p-3 rounded-xl w-full"
+>
+  <img
+    className="w-20 sm:w-24 md:w-28 h-auto object-contain rounded-2xl mx-auto sm:mx-0"
+    src={item.image}
+    alt="img item"
+  />
 
-                <div className="item_info flex flex-col gap-2 mt-3 w-full">
-                  <div className="name_delete flex items-center justify-between">
-                    <h3>{item.name}</h3>
-                    <span>
-                      <IoIosClose />
-                    </span>
-                  </div>
+  <div className="item_info flex flex-col gap-2 mt-2 w-full">
+    <div className="name_delete flex items-center justify-between">
+      <h3 className="text-base sm:text-lg font-bold">{item.name}</h3>
+      <span
+        className="cursor-pointer text-xl sm:text-2xl"
+        onClick={() => deleteItem(item.id)}
+      >
+        <IoIosClose />
+      </span>
+    </div>
 
-                  <p>{item.category}</p>
+    <p className="text-xs sm:text-sm text-gray-300">{item.category}</p>
 
-                  <div className="price_edit flex items-center justify-between">
-                    <p>{item.price} $</p>
-                    <span>
-                      <BiEdit />
-                    </span>
-                  </div>
-                </div>
-              </div>
+    <div className="price_edit flex items-center justify-between mt-1">
+      <p className="text-sm sm:text-base font-bold">{item.price} $</p>
+      <NavLink to={`/dashbord/EditItem/${item.id}`}>
+        <span className="cursor-pointer text-lg sm:text-xl">
+          <BiEdit />
+        </span>
+      </NavLink>
+    </div>
+  </div>
+</div>
+
               
             ))
           ) : (

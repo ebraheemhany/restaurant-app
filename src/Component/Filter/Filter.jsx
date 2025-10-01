@@ -30,7 +30,7 @@ if(selectedFilters.length > 0) {
 }, [selectedFilters , data ])
 
   return (
-    <div className='fixed top-40 right-5 w-35 '>
+    <div className='fixed top-70 right-5 w-35 '>
       {/* filter Icon */}
           <div onClick={() => setShowFilter((prev) => !prev)}  className='absolute -top-10 right-0 cursor-pointer'>
             <span className='text-amber-600'>filter</span>
