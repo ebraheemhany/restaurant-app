@@ -110,7 +110,7 @@ const AddToCart = (item) => {
 };
  
 
-// get bset Seler from products
+// get best Seler from products
 useEffect(() => {
   const TopProducts = async () => {
     // 1. هات الـ orders من supabase

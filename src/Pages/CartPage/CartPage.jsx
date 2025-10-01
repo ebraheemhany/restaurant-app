@@ -38,9 +38,10 @@ export const CartPage = () => {
   );
 
   // الاوردرات اللي المستخدم طلبهاا
-  const userPhone = localStorage.getItem("userPhone");
+   
   useEffect(() => {
     const fetchOrders = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
       const { error, data } = await supabase
         .from("orders")
         .select(
@@ -53,7 +54,7 @@ export const CartPage = () => {
           customers(name, phone, location)
         `
         )
-        .eq("customers.phone", userPhone)
+        .eq("customer_id", user.id) 
         // السطر ده علشان نرتب الاوردر حسب التاريخ
         .order("created_at", { ascending: false });
 
@@ -67,7 +68,7 @@ export const CartPage = () => {
     };
     fetchOrders();
   }, []);
-  console.log(orders);
+
 
   return (
     <>
