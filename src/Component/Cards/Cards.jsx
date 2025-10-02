@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,41 +8,36 @@ import { BigCard } from "../BigCard/BigCard";
 import { Link } from "react-router";
 
 export const Cards = ({ title, data , more }) => {
-var settings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4, // خليه 4 بدل 5 كبداية أساسية
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  pauseOnHover: true,
-  arrows: false,
-  responsive: [
-    {
-      breakpoint: 1420,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-      },
-    },
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+    const [slidesToShow, setSlidesToShow] = useState(1);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 450) setSlidesToShow(1);
+      else if (window.innerWidth < 768) setSlidesToShow(2);
+      else if (window.innerWidth < 1024) setSlidesToShow(3);
+      else if (window.innerWidth < 1420) setSlidesToShow(4);
+      else setSlidesToShow(5);
+    };
+
+    updateSlides(); // استدعاء مرة أولى عند تحميل الصفحة
+    window.addEventListener("resize", updateSlides);
+
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    arrows: false,
+  };
+
+
 
 
   return (
