@@ -59,44 +59,44 @@ const totalPrice = orders.reduce((sum , order) => sum + (order.total || 0) , 0)
       <div className="dash_content w-full mx-auto">
 
 
-        <div className="small_cart grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3  w-full mx-auto">
-          <div className="vist bg-white/10 text-white rounded-2xl p-4 flex items-center gap-4 max-w-70">
-            <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-              <CiUser className="text-2xl text-white" />
+        <div className="small_cart grid xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3  w-full mx-auto">
+          <div className="vist bg-white/10 text-white rounded-2xl p-2 sm:p-4 flex items-center gap-2 sm:gap-4 max-w-70">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 flex items-center justify-center">
+              <CiUser className="text-lg sm:text-2xl text-white" />
             </div>
             <div>
-              <h3 className="text-3xl font-extrabold"><CountUp start={0} end={stats.visitors} duration={5} separator="," delay={1} /></h3>
-              <p className="text-xl font-bold mt-1">Visitors</p>
+              <h3 className="text-lg sm:text-3xl font-extrabold"><CountUp start={0} end={stats.visitors} duration={5} separator="," delay={1} /></h3>
+              <p className="text-sm sm:text-xl font-bold mt-1">Visitors</p>
             </div>
           </div>
 
-          <div className="vist bg-white/10 text-white rounded-2xl p-4 flex items-center gap-4 max-w-70">
-            <div  className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-              <CiUser className="text-2xl text-white"/>
+          <div className="vist bg-white/10 text-white rounded-2xl p-2 sm:p-4 flex items-center gap-2 sm:gap-4 max-w-70">
+            <div  className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 flex items-center justify-center">
+              <CiUser className="text-lg sm:text-2xl text-white"/>
             </div>
             <div>
               
-              <h3 className="text-3xl font-extrabold"><CountUp start={0} end={stats.signups} duration={5} separator="," delay={1} /></h3>
-              <p className="text-xl font-bold mt-1">SignUps</p>
+              <h3 className="text-lg sm:text-3xl font-extrabold"><CountUp start={0} end={stats.signups} duration={5} separator="," delay={1} /></h3>
+              <p className="text-sm sm:text-xl font-bold mt-1">SignUps</p>
             </div>
           </div>
-          <div className="vist bg-white/10 text-white rounded-2xl p-4 flex items-center gap-4 max-w-70 ">
-            <div  className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-              <CiShoppingCart className="text-2xl text-white"/>
+          <div className="vist bg-white/10 text-white rounded-2xl p-2 sm:p-4 flex items-center gap-2 sm:gap-4 max-w-70 ">
+            <div  className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 flex items-center justify-center">
+              <CiShoppingCart className="text-lg sm:text-2xl text-white"/>
             </div>
             <div>
               
-              <h3 className="text-3xl font-extrabold"><CountUp start={0} end={orders.length} duration={5} separator="," delay={1} /></h3>
-              <p className="text-xl font-bold mt-1">Orders</p>
+              <h3 className="text-lg sm:text-3xl font-extrabold"><CountUp start={0} end={orders.length} duration={5} separator="," delay={1} /></h3>
+              <p className="text-sm sm:text-xl font-bold mt-1">Orders</p>
             </div>
           </div>
-          <div className="vist bg-white/10 text-white rounded-2xl p-4 flex items-center gap-4 max-w-70">
-            <div  className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-              <BsCurrencyDollar className="text-2xl text-white" />
+          <div className="vist bg-white/10 text-white rounded-2xl p-2 sm:p-4 flex items-center gap-2 sm:gap-4 max-w-70">
+            <div  className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 flex items-center justify-center">
+              <BsCurrencyDollar className="text-lg sm:text-2xl text-white" />
             </div>
             <div>
-              <h3 className="text-3xl font-extrabold"><CountUp start={0} end={totalPrice} duration={5} separator="," delay={1} /></h3>
-              <p className="text-xl font-bold mt-1">Revenue</p>
+              <h3 className="text-lg sm:text-3xl font-extrabold"><CountUp start={0} end={totalPrice} duration={5} separator="," delay={1} /></h3>
+              <p className="text-sm sm:text-xl font-bold mt-1">Revenue</p>
             </div>
           </div>
         </div>

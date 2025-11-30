@@ -23,15 +23,16 @@ export const ItemOffers = () => {
 
   return (
     <div className="menu_page h-full">
-      <div className="menu_content p-10 ">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-extrabold pb-3 ">Items Offers</h1>
+      <div className="menu_content p-5 sm:p-10 ">
+      <div className="flex flex-col sm:flex-row my-3 items-center sm:justify-between">
+          <h1 className="text-2xl sm:text-2xl font-extrabold pb-3 ">Items Offers</h1>
 
           <div className="flex items-center gap-4 pb-3">
             <Search
               searsh={serach}
               setSearsh={setSearch}
               setFilteredItem={setFilteredItem}
+            
             />
             <NavLink
               to={"/dashbord/AddItemOffers"}
@@ -41,7 +42,7 @@ export const ItemOffers = () => {
             </NavLink>
           </div>
         </div>
-        <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2  sm:gap-4 w-full"> 
+        <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1  gap-2  sm:gap-4 w-full"> 
           {laoding ? (
             <div className="relative">
               <Loading />

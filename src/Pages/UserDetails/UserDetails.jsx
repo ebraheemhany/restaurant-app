@@ -48,7 +48,7 @@ const handelSubmit = async (e) => {
       return;
     }
     //  علشان نحفظ رقم العميل في local stroge
-     window.localStorage.setItem("userPhone", user.phone);
+window.localStorage.setItem("userDetails", JSON.stringify(user));
 
     // 2. إضافة الأوردر
     const { error: error2 } = await supabase.from("orders").insert([

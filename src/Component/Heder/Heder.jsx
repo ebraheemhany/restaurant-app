@@ -64,7 +64,7 @@ export const Heder = () => {
           <div className="relative">
             {/* start icon search */}
             <div
-              className="p-1.5 sm:flex items-center gap-2  border rounded-4xl cursor-pointer hover:bg-gray-100 hover:text-black"
+              className="search p-2.5 sm:flex items-center gap-2  border rounded-4xl cursor-pointer "
               onClick={handelOpen}
             >
               <span className="text-sm text-gray-500 hidden sm:block">
@@ -87,7 +87,7 @@ export const Heder = () => {
             {user ? (
             <div
               onClick={removeUserFromLocalS}
-              className="user   text-2xl cursor-pointer"
+              className="user text-2xl cursor-pointer"
             >
               <CiLogin />
             </div>
@@ -158,7 +158,7 @@ export const Heder = () => {
         >
 
 
-         <div className="mt-30 mx-auto flex flex-col  ">
+         <div className="mt-[200px] mx-auto flex flex-col  ">
            <ul className="flex flex-col justify-center ">
             <Link to="/" onClick={() => setShowMenu(false)}> 
               <span className="w-full flex justify-center mt-3 text-2xl">Home</span>
@@ -172,7 +172,7 @@ export const Heder = () => {
            </ul>
 
 
-         <div className="flex justify-center w-80  bg-amber-600  text-white p-2 rounded-sm mt-3 ">
+         <div className="x_button flex justify-center w-80 border-1 border-amber-600  text-white p-2 rounded-sm mt-6 duration-500 ">
             {user ? (
        <button onClick={removeUserFromLocalS} className=" text-2xl cursor-pointer flex items-center gap-2 justify-center">
          Log Out <span className="mt-2"><CiLogin /></span>
@@ -186,12 +186,12 @@ export const Heder = () => {
           )}
          </div>
 
-<div className="flex justify-center w-80  bg-amber-600  text-white mt-3 rounded-sm">
+<div className="x_button flex justify-center w-80 border-1 border-amber-600  text-white p-2 rounded-sm mt-6 duration-500">
   
           {user && user.user.email == "admin1@gmail.com" && (
             <Link to={"/dashbord"}>
-              <button className=" text-2xl cursor-pointer flex  w-full bg-amber-600  text-white p-2 rounded-xl">
-               DashBord
+              <button className="text-2xl cursor-pointer flex items-center gap-2 justify-center w-full">
+              DashBord
               </button>
             </Link>
           )}

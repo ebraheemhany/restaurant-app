@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import v_1 from "../../img/v_1.mp4";
-import v_2 from "../../img/v_2.mp4";
-import v_3 from "../../img/v_3.mp4";
+// import v_2 from "../../img/v_2.mp4";
+// import v_3 from "../../img/v_3.mp4";
 import { Link } from "react-router";
 
 export const LandingPage = () => {
-  const videos = [v_1, v_2, v_3];
+  const videos = [v_1];
   const [curentVideo, setCurentVideo] = useState(0);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const LandingPage = () => {
         key={curentVideo}
         src={videos[curentVideo]}
         autoPlay
-        loop={false}
+        loop
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
@@ -32,9 +32,9 @@ export const LandingPage = () => {
 
       {/* المحتوى */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
-        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 leading-relaxed max-w-2xl">
-          Welcome to our restaurant, where authentic flavors meet unforgettable
-          moments.
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-relaxed max-w-2xl">
+          Welcome to our restaurant
+    
         </h1>
         <h3 className="text-base sm:text-lg md:text-2xl mb-6">
           Every meal... a moment of happiness

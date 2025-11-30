@@ -4,6 +4,7 @@ import { IoIosClose } from "react-icons/io";
 import { NavLink } from "react-router";
 import { useContext } from "react";
 import { AppContext } from "../../Context/Context";
+
 export const ItemComponent = ({ item, key }) => {
   const {deleteItem} = useContext(AppContext)
   // clculate the new price
@@ -12,39 +13,36 @@ export const ItemComponent = ({ item, key }) => {
   return (
     <div
       key={key}
-      className="relative bg-red-900 flex flex-col gap-4 p-2 rounded-xl w-auto sm:max-w-[300px]"
+      className="relative bg-red-900 flex flex-col  rounded-xl w-auto overflow-hidden"
     >
       <img
-        className="w-full h-80 object-contain rounded-2xl"
+        className="w-full object-contain "
         src={item.image}
         alt="img item"
       />
+         <div className="pro_dis w-[100px] h-[20px] bg-amber-500 absolute top-0 left-[-25px] rotate-[-30deg]">
+            <span className="flex items-center justify-center">{item.discount} %</span>
+          </div>
 
-      <div className="price_edit flex items-center justify-between">
+      <div className="price_edit flex items-center justify-between m-2">
         <h3>{item.name}</h3>
-         
         <NavLink  to={`/dashbord/EditItem/${item.id} `}>
           <span className="cursor-pointer">
-            <BiEdit />
+            <BiEdit className="text-lg" />
           </span>
         </NavLink>
       </div>
 
-      <span onClick={() => deleteItem(item.id)} className="cursor-pointer text-2xl absolute top-5 right-5">
+      <span onClick={() => deleteItem(item.id)} className="cursor-pointer absolute text-2xl top-2 text-black text-2xl  right-2">
         <IoIosClose />
       </span>
 
-      <p>{item.discription}</p>
+      <p className="text-sm mx-1">{item.discription}</p>
 
-      <div className="price_edit flex items-center justify-between">
-        <p>price : <span className="line-through text-xl text-black/50">{item.price}</span> $</p>
-        <p>
-          Discount : <span className="text-xl text-black/50">{item.discount} %</span>
-        </p>
-      </div>
+     
 
-    <div className="">
-      <p>new Price : <span className="text-xl text-black/50">{newPrice}</span></p>
+    <div className="ml-2 mb-2">
+      <p>Price : <span className="text-xl text-black/50">{newPrice}$</span></p>
     </div>
 
 

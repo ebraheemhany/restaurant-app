@@ -4,26 +4,48 @@
 }
 .card {
 max-width: 280px;
-height: 380px;
-border: 1px solid rgba(189, 189, 189, 0.377);
+height: 360px;
+border: 1px solid rgba(228, 227, 227, 0.192);
 border-radius: 8px;
 cursor: pointer;
 overflow: hidden;
 transition: 0.4s ease-in-out;
 margin: 0 5px;
+position: relative;
 }
 .card:hover {
 box-shadow: rgba(240, 235, 235, 0.35) 0px 5px 15px;
 border: none;
+scale: 1.08;
 }
 .card img {
 width: 100%;
-height: 180px;
+height: 200px;
 object-fit: cover;
 
 }
+.card .pro_dis {
+width: 100px;
+height: 20px;
+background-color: orange;
+position: absolute;
+top: 0px;
+left: -25px;
+transform: rotate(-30deg);
+
+}
+.card .pro_dis span {
+/* margin-left: 35px; */
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+
+
 .card h3 {
-font-size: 25px;
+font-size: 22px;
 font-weight: bold;
 margin: 10px 5px;
 

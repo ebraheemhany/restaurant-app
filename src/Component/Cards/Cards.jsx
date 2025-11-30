@@ -44,10 +44,10 @@ export const Cards = ({ title, data , more }) => {
     <div className="cards  ">
       <div className="cards_content w-full ">
         <div className="flex items-center justify-between">
-          <h4 className="text-lg md:text-xl">{title}</h4>
+          <h4 className="text-xl md:text-2xl font-bold text-amber-600">{title}</h4>
       <Link to={more}>
           <p className="border py-2 px-3 rounded-2xl text-xl cursor-pointer hover:bg-amber-600 ">
-            more..
+            More
           </p>
       </Link>
         </div>

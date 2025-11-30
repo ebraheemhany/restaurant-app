@@ -10,38 +10,46 @@ color: rgb(187, 153, 2);
 
 }
 .cart_user .cart,
-.cart_user .user {
+.cart_user .user
+{
 width: 40px;
 height: 40px;
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: rgb(61, 57, 57);
+background-color: transparent;
+border: 1px solid white;
 border-radius: 50%;
 transition: 0.4s ease-in-out;
 cursor: pointer;
-box-shadow: rgba(167, 156, 1, 0.699) 0px 5px 15px;
+
 }
 .cart_user .cart svg,
-.cart_user .user svg {
+.cart_user .user svg,
+.cart_user .search svg {
 font-size: 20px;
 }
 .cart_user .cart:hover,
-.cart_user .user:hover {
+.cart_user .user:hover ,
+.cart_user .search:hover {
 border: 1px solid rgb(182, 131, 4);
-box-shadow: none;
 }
 .cart_user .menu {
 width: 40px;
 height: 40px;
-background-color: rgb(61, 57, 57);
+background-color: transparent;
+border: 1px solid white;
 border-radius: 50%;
 transition: 0.4s ease-in-out;
 cursor: pointer;
-box-shadow: rgba(167, 156, 1, 0.699) 0px 5px 15px;
+
 
 }
-
+.x_button:hover {
+background-color: rgb(243, 166, 23);
+color: black;
+scale: 1.05;
+}
 
 @media(max-width:300px) {
     .cart_user .cart,
